@@ -1,6 +1,9 @@
 @import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
     body {
-      font-family: 'Cascadia Code', sans-serif;
+    background-color: #1b1c1f;
+    font-family: 'Overpass', sans-serif;
+    margin: 0;
+
     }
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
@@ -12,19 +15,10 @@
     
     }
     .container {
-      background-color: #212832;
-      color: #fff;
-      display: block;
-      position: relative;
-      padding: 50px;
+      display: flex;
+      height: 97vh;
       justify-content: center;
-      margin: auto;
-      width: 25%;
-      border-radius: 14px;
-    }
-    .container p {
-      font-size:15px ;
-      color: #6D737F;
+      align-items: center;
     }
     .button {
       background-color: #6D737F;
@@ -42,9 +36,111 @@
     .button5 {
       border-radius: 50%;
     }
-    #nums {
-    }
     .button:hover {
       background-color: hsl(25, 97%, 53%);
       cursor: pointer;
+    }
+    .rating_form {
+        height: auto;
+        width: 50vh;
+        /* background: rgb(34, 41, 51); */
+        background: #212931;
+        border-radius: 5%;
+        box-shadow: 0 5px 15px -5px rgba(0, 0, 5, 0.5);
+        align-items: flex-start;
+        padding: 4vh;
+    }
+    .feedback {
+        display :none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        width: 50vh;
+        background: #212931;
+        border-radius: 5%;
+        box-shadow: 0 5px 15px -5px rgba(0, 0, 5, 0.5);
+        padding: 4vh;
+    }
+    .rating_form h1 {
+        color: white;
+        font-size: 4vh;
+        font-weight: 700;
+    }
+    .rating_form p {
+        color: #7c8798;
+        font-size: 2.1vh;
+        line-height: 140%;
+    }
+    .rating {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+        margin: 4vh 0;
+    }
+    
+    .rateDefault {
+        background-color: #252d37;
+        color: #7c8798;
+        width: 6.4vh;
+        height: 6.4vh;
+        border: 0;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 2vh;
+        transition: 0.5s ease;
+    }
+    .rating button:hover {
+        background-color: hsl(25, 97%, 53%);
+        cursor: pointer;
+        color: white;
+    }
+    .rateSelected {
+        background-color: grey;
+        color: #ffffff;
+        transition: 0.5s ease;
+    }
+    .selectedRating {
+        display: flex;
+        background-color: #252d37;
+        color: #fb7413;
+        width: auto;
+        height: auto;
+        padding: 0 1.5vh;
+        border-radius: 5vh;
+        font-size: 1.5vh;
+        margin: 3vh;
+        text-align: center;
+    }
+    .selectedRating p {
+        letter-spacing: 0.3vh;
+    }
+    .submitButton {
+        background-color: hsl(25, 97%, 53%);
+        color: white;
+        border: 0;
+        width: 100%;
+        height: 45px;
+        border-radius: 20px;
+        cursor: pointer;
+        letter-spacing: 2px;
+        transition: 0.5s ease-in-out;
+    }
+    .submitButton:hover {
+        background-color: white;
+        color: hsl(25, 97%, 53%);
+        transition: 0.5s ease-in-out;
+    }
+    #feedh1 {
+        color: white;
+        font-size: 4vh;
+        font-weight: 700;
+        margin: 0;
+    }
+    #feedp {
+        color: #7c8798;
+        text-align: center;
+        font-size: 2.1vh;
+        line-height: 140%;
     }

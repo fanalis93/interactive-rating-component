@@ -14,43 +14,96 @@
 
   <div class="container">
     <div class="rating_form"> 
-      <img id="star" src="images/icon-star.svg" alt="">
+      <div class="header_star">
+        <img id="star" src="images/icon-star.svg" alt="">
+      </div>
     
-    <h3>How did we do??</h3>
+    <h1>How did we do??</h1>
 
    <p> Please let us know how we did with your support request. All feedback is appreciated 
   to help us improve our offering!</p>
 
-  <div id="nums">
+  <!-- <div id="nums">
     <div class="button button5" tabindex="0">1</div>
     <div class="button button5" tabindex="0">2</div>
     <div class="button button5" tabindex="0">3</div>
     <div class="button button5" tabindex="0">4</div>
     <div class="button button5" tabindex="0">5</div>
     
-  </div>
+  </div> -->
+  <div class="rating">
+    <button onclick="onButtonClick(0)" class="rateDefault">1</button>
+    <button onclick="onButtonClick(1)" class="rateDefault">2</button>
+    <button onclick="onButtonClick(2)" class="rateDefault">3</button>
+    <button onclick="onButtonClick(3)" class="rateDefault">4</button>
+    <button onclick="onButtonClick(4)" class="rateDefault">5</button>
+  </div>  
 
-  Submit
-</div>
+  <button class="submitButton" onclick="onSubmitButton()">SUBMIT</button>
   </div>
 
   <!-- Rating state end -->
 
   <!-- Thank you state start -->
 
-  You selected <!-- Add rating here --> out of 5
+  <div class="feedback">
+    <div>
+      <img src="/images/illustration-thank-you.svg" alt="feed">
+    </div>
+    <div class="selectedRating">
+      <p>You selected&nbsp;</p> <p id="finalRating">&nbsp;</p> <p>&nbsp;out of 5</p>
+    </div>
 
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
+  <h1 id="feedh1">Thank you!</h1>
+    <p id="feedp">We appreciate you taking the time to give a rating. If you ever need more support, 
+      don't hesitate to get in touch!</p>
+  
+  </div>
 
   <!-- Thank you state end -->
-
+  </div>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">fanalis93</a>.
   </div>
+  <script>
+
+    let ratingButtons = document.getElementsByClassName("rating")[0].children
+    let mainScreen = document.getElementsByClassName("rating_form")[0]
+    let feedbackScreen = document.getElementsByClassName("feedback")[0]
+    let userSelection
+    let isSelected = false
+
+    function onButtonClick(selection) {
+      userSelection = selection;
+      for(let i=0; i<ratingButtons.length; i++){
+        if(selection===i){
+          changeClass(ratingButtons[i])
+          isSelected = true
+        }
+        else {
+          resetClass(ratingButtons[i])
+        }
+      }
+    }
+    function changeClass(element) {
+      element.classList.add('rateSelected')
+    }
+
+    function resetClass(element) {
+      element.classList.remove('rateSelected')
+    }
+    function onSubmitButton() {
+      if(isSelected){
+        mainScreen.style.display = "none";
+        feedbackScreen.style.display = "flex";
+        document.getElementById("finalRating").innerHTML = userSelection + 1
+      } else {
+        window.alert("Please Select a rating!")
+      }
+    }
+
+</script>
 </body>
 </html>
